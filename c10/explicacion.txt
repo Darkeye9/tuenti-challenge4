@@ -1,0 +1,13 @@
+Explicación de la solución al reto 10. Tuenti Challenge 4
+Viernes 2 de Mayo de 2014 3:10
+
+Casi el 90% del tiempo que dediqué al reto, como 12H, las perdí buscando soluciones por otros puertos del servidor, que más tarde
+me confirmaron a través de twitter que no era por ahí, así que me centré en el puerto 80.
+
+Primeramente usé el escaner Acunetix Web Vulnerability Scanner sobre el servidor, en el puerto 80.
+Y me detectó que existía un archivo index.php~ así que lo bajé y resultó ser el código fuente del index.php.
+Analicé el código, y determiné que debía de bruteforcear el PID del servidor Apache. Lo demás podía ser calculado de antemano.
+
+También codifiqué una rutina de sincronización de timestamp entre el servidor y mi maquina, debido a que había 63 segundos
+de retraso resecto a mi reloj y eso me ocasionaría fallos cerca de los minutos "en punto". Ya que la semilla lo único que 
+tenía en cuenta son horas y minutos. Esta sincro se refrescaba cada 100 peticiones.

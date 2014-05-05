@@ -1,0 +1,1 @@
+@TuentiEng, #11 is broken. Ex: user 101158 uses 0x30 as padding (AES block size is 16). This breaks my solution! :( #TuentiChallenge4
